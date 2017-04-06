@@ -7,36 +7,63 @@ import {
 
 import {Button, Switch,Form, Input,Header,Right,Icon, ListItem,Picker, Left,Thumbnail,Container, Card,CardItem,Body,Text,Content, Center, Item} from 'native-base';
 import {Col, Row, Grid} from 'react-native-easy-grid';
-import Actions from 'react-native-router-flux';
+import {Actions} from 'react-native-router-flux';
 import NavBarBelow from './Footer'
-
+import DatePicker from 'react-native-datepicker'
 import {connect} from 'react-redux'
-import {actionCreators} from '../../sampleRedux'
+import {gChange, sChange} from '../actions/profilePage'
+
+
 //The props is passed to this level of profilePage
 const mapStateToProps = (state) => ({
-  profileKeys: state.profileKeys
+  profileKeys: state.profileKeys,
+  name: state.name,
+  birthday: state.bd,
 })
 
 class ProfilePage extends Component {
-
   //Probably not necessary
   constructor(props) {
       super(props);
   }
 
+  formatDate(date){
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  }
+
   onGenderChange (value: string) {
     const {dispatch} = this.props
-    dispatch(actionCreators.gChange(value))
+    dispatch(gChange(value))
+    this.forceUpdate();
   }
   onStatusChange (value: string) {
     const {dispatch} = this.props
-    dispatch(actionCreators.sChange(value))
+    dispatch(sChange(value))
+    this.forceUpdate();
   }
 
+  goToDatePick() {
+    return Actions.newsPage();
+  }
+
+  componentWillMount() {
+    console.log('render start')
+  }
 
   render() {
 
-    const {profileKeys} = this.props
+    const {profileKeys, name, birthday} = this.props
 
     return (
       <Container>
@@ -76,7 +103,7 @@ class ProfilePage extends Component {
                 <Text>用户名</Text>
               </Body>
               <Right>
-                  <Text>Li</Text>
+                  <Text>{name}</Text>
                   <Button transparent
                     >
                     <Icon name="arrow-forward" style={{ color: '#0A69FE' }} />
@@ -101,6 +128,11 @@ class ProfilePage extends Component {
                   <Item label="女性" value="key1" />
                   <Item label="未知" value="key3" />
                 </Picker>
+                <Button transparent>
+                  <Icon name="arrow-forward" style={{ color: '#0A69FE' }} />
+                </Button>
+
+
                </Right>
             </ListItem>
 
@@ -113,7 +145,12 @@ class ProfilePage extends Component {
                  <Text>生日</Text>
                </Body>
                <Right>
-                 <Text>Apr. 06, 1996</Text>
+                 <Text>{this.formatDate(birthday)}</Text>
+                 <Button transparent
+                  onPress={() => Actions.datePick()}
+                   >
+                   <Icon name="arrow-forward" style={{ color: '#0A69FE' }} />
+                 </Button>
                </Right>
              </ListItem>
 
@@ -138,7 +175,6 @@ class ProfilePage extends Component {
                    <Item label="分居" value="key5" />
                    <Item label="离婚" value="key6" />
                    <Item label="鳏寡" value="key7" />
-
                  </Picker>
                 </Right>
              </ListItem>

@@ -5,6 +5,7 @@ import NewsWebScene from './container/NewsWebScene'
 import RoommateDeck from './container/Roommate'
 import ProfilePage from './container/Profile'
 import newSwipe from './container/newSwipe'
+import DatePick from './container/DatePicking'
 
 const scenes = Actions.create(
   <Scene key="root">
@@ -14,6 +15,7 @@ const scenes = Actions.create(
       title={"推送"}
       type='replace'
       initial
+
       />
     <Scene
       key="profilePage"
@@ -26,6 +28,12 @@ const scenes = Actions.create(
       key="webPage"
       component={NewsWebScene}
       title={"详情"}
+      />
+
+    <Scene
+      key="datePick"
+      component={DatePick}
+      title={"Pick Your Birthday"}
       />
 
     <Scene

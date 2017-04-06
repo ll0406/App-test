@@ -20,7 +20,7 @@ export default class NavBarBelow extends Component{
         </FooterTab>
         <FooterTab>
             <Button transparent onPress={goToNews}>
-                <Icon active name="paper" />
+                <Icon  name="paper" />
             </Button>
         </FooterTab>
         <FooterTab>
