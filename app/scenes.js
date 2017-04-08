@@ -6,6 +6,7 @@ import RoommateDeck from './container/Roommate'
 import ProfilePage from './container/Profile'
 import newSwipe from './container/newSwipe'
 import DatePick from './container/DatePicking'
+import homePage from './container/homePage'
 
 const scenes = Actions.create(
   <Scene key="root">
@@ -34,6 +35,13 @@ const scenes = Actions.create(
       key="datePick"
       component={DatePick}
       title={"Pick Your Birthday"}
+      />
+
+    <Scene
+      key="home"
+      component={homePage}
+      title={"Home"}
+      type='replace'
       />
 
     <Scene

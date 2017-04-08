@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   Image,
-  Alert
+  Alert,
+  TouchableOpacity,
 } from 'react-native';
 
 import {Button, Switch,Form, Input,Header,Right,Icon, ListItem,Picker, Left,Thumbnail,Container, Card,CardItem,Body,Text,Content, Center, Item} from 'native-base';
@@ -52,11 +53,6 @@ class ProfilePage extends Component {
     dispatch(sChange(value))
     this.forceUpdate();
   }
-
-  goToDatePick() {
-    return Actions.newsPage();
-  }
-
   componentWillMount() {
     console.log('render start')
   }
@@ -71,12 +67,8 @@ class ProfilePage extends Component {
           <Content>
             <Grid>
               <Row size={1}>
-
-
               </Row>
-
               <Row size={4}>
-
               </Row>
             </Grid>
             <Card>
@@ -84,10 +76,11 @@ class ProfilePage extends Component {
               <Left>
               <Body>
               <Right>
-
+                <TouchableOpacity onPress={()=>Actions.newsPage()}>
                   <Thumbnail style={{width: 100, height: 100, borderRadius: 50}}
                   source={require('../img/Lili.jpeg')}
                   />
+                </TouchableOpacity>
 
               </Right>
               </Body>

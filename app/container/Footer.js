@@ -8,13 +8,13 @@ import {Actions} from 'react-native-router-flux';
 
 export default class NavBarBelow extends Component{
   render(){
-    const goToRoommate = () => Actions.roommate();
+    const goToHome = () => Actions.home();
     const goToNews = () => Actions.newsPage();
     const goToProfile = () => Actions.profilePage();
     return(
       <Footer>
         <FooterTab>
-            <Button transparent onPress={goToRoommate}>
+            <Button transparent onPress={goToHome}>
                 <Icon name="apps" />
             </Button>
         </FooterTab>
