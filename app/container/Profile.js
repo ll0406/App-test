@@ -121,11 +121,6 @@ class ProfilePage extends Component {
                   <Item label="女性" value="key1" />
                   <Item label="未知" value="key3" />
                 </Picker>
-                <Button transparent>
-                  <Icon name="arrow-forward" style={{ color: '#0A69FE' }} />
-                </Button>
-
-
                </Right>
             </ListItem>
 

@@ -1,6 +1,6 @@
 import {createStore} from 'redux';
-import appReducer from './reducers';
-import reducer from './reducers/profilePage'
+import rootReducer from './reducers';
+import profileReducer from './reducers/profilePage'
 
-const store = createStore(reducer);
+const store = createStore(profileReducer);
 export default store;

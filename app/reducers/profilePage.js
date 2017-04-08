@@ -1,12 +1,14 @@
-import {GCHANGE, SCHANGE, SET_NAME, SET_BIRTHDAY} from '../constants';
+import {GCHANGE, SCHANGE, SET_NAME, SET_BIRTHDAY, SET_NEWSOFFSET} from '../constants';
 
 const initialState = {
   profileKeys: ['key0', 'key3'], //First gender, second status
   name: 'UNKNOWN',
   bd: new Date(),
+  newsOffset: 0,
+  profileUri: null,
 };
 
-const reducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
   let newState = Object.assign({}, state);
   const {type, payload} = action
 
@@ -27,9 +29,17 @@ const reducer = (state = initialState, action) => {
       newState.bd = payload
       break;
     }
+
+    // This is the NEWS Part
+    case SET_NEWSOFFSET: {
+      newState.newsOffset = payload
+      break;
+    }
+    
+
   }
   console.log(newState)
   return newState
 };
 
-export default reducer;
+export default profileReducer;
