@@ -14,11 +14,13 @@ import {
   Container,
   Content,
   Button,
+  Thumbnail,
+  Body,
 } from 'native-base';
 import NavBarBelow from './Footer'
 import Swiper from 'react-native-swiper';
 import {Actions} from 'react-native-router-flux';
-
+import {Col, Row, Grid} from 'react-native-easy-grid';
 
 
 export default class homePage extends Component {
@@ -49,6 +51,30 @@ export default class homePage extends Component {
                   </TouchableOpacity>
 
               </Swiper>
+
+              <Grid>
+
+              <Row size={1}>
+              <Col>
+                <Body>
+                  <TouchableOpacity onPress={() => Actions.roommate()}>
+                    <Thumbnail style={{width: 80, height: 80, borderRadius: 40}}
+                    source={require('../img/roommate_thumb.png')} />
+                  </TouchableOpacity>
+                </Body>
+              </Col>
+              <Col>
+
+              </Col>
+
+
+              </Row>
+
+              <Row size={1}></Row>
+              <Row size={1}></Row>
+
+              </Grid>
+
           </Content>
         <NavBarBelow/>
       </Container>

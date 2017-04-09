@@ -6,6 +6,8 @@ const initialState = {
   bd: new Date(),
   newsOffset: 0,
   photoUri: null,
+  personList: [],
+  potentialList: []
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -39,8 +41,6 @@ const profileReducer = (state = initialState, action) => {
       newState.newsOffset = payload
       break;
     }
-
-
   }
   console.log(newState)
   return newState

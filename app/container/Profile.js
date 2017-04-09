@@ -74,14 +74,12 @@ class ProfilePage extends Component {
 
 
   render() {
-
     const {profileKeys, name, birthday, photoUri} = this.props
     let actualUri = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
-    console.log(photoUri != null)
+
     if(photoUri != null) {
         actualUri = photoUri
     }
-    console.log(actualUri)
 
     return (
       <Container>

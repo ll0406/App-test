@@ -12,3 +12,6 @@ export const SET_NEWSOFFSET = "SET_READOFFSET" //Memorize the Scroll location
 
 //Photo Picker
 export const SET_PHOTO = "SET_PHOTO" //Pick the photo
+
+//Roomate Adding to List
+export const ADD_TO_POTENTIAL = "ADD_TO_POTENTIAL" //When card is swiped to the left

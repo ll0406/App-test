@@ -1,4 +1,4 @@
-const peopleData = [
+const defaultList = [
     {
         text: 'Card One',
         name: 'A 子',
@@ -34,7 +34,74 @@ const peopleData = [
         name: 'F 子',
         image: require('./img/swiper-6.png'),
         interests: ['Party','Photography','Piano'],
-    }
+    },
+    {
+        text: 'Card One',
+        name: 'G 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'H 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'I 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'J 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'K 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'L 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'M 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'N 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'O 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'P 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+    {
+        text: 'Card One',
+        name: 'Q 子',
+        image: require('./img/swiper-5.png'),
+        interests: ['Party','Photography','Piano'],
+    },
+
 ];
 
-export default peopleData
+export default defaultList

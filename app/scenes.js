@@ -47,7 +47,6 @@ const scenes = Actions.create(
     <Scene
       key="roommate"
       component={RoommateDeck}
-      type='replace'
       title={"探？"}
       />
     <Scene
