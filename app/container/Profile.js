@@ -4,6 +4,7 @@ import {
   Image,
   Alert,
   TouchableOpacity,
+  ImagePickerIOS,
 } from 'react-native';
 
 import {Button, Switch,Form, Input,Header,Right,Icon, ListItem,Picker, Left,Thumbnail,Container, Card,CardItem,Body,Text,Content, Center, Item} from 'native-base';
@@ -12,7 +13,7 @@ import {Actions} from 'react-native-router-flux';
 import NavBarBelow from './Footer'
 import DatePicker from 'react-native-datepicker'
 import {connect} from 'react-redux'
-import {gChange, sChange} from '../actions/profilePage'
+import {gChange, sChange, setPhoto} from '../actions/profilePage'
 
 
 //The props is passed to this level of profilePage
@@ -20,6 +21,7 @@ const mapStateToProps = (state) => ({
   profileKeys: state.profileKeys,
   name: state.name,
   birthday: state.bd,
+  photoUri: state.photoUri
 })
 
 class ProfilePage extends Component {
@@ -53,13 +55,33 @@ class ProfilePage extends Component {
     dispatch(sChange(value))
     this.forceUpdate();
   }
+
+  pickImage() {
+    // openSelectDialog(config, successCallback, errorCallback);
+    ImagePickerIOS.openSelectDialog({}, imageUri => {
+      const {dispatch} = this.props
+      dispatch(setPhoto(imageUri))
+      this.forceUpdate();
+    }, error => console.error(error));
+  }
+
+
+
   componentWillMount() {
     console.log('render start')
   }
 
+
+
   render() {
 
-    const {profileKeys, name, birthday} = this.props
+    const {profileKeys, name, birthday, photoUri} = this.props
+    let actualUri = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+    console.log(photoUri != null)
+    if(photoUri != null) {
+        actualUri = photoUri
+    }
+    console.log(actualUri)
 
     return (
       <Container>
@@ -76,9 +98,9 @@ class ProfilePage extends Component {
               <Left>
               <Body>
               <Right>
-                <TouchableOpacity onPress={()=>Actions.newsPage()}>
+                <TouchableOpacity onPress={()=>this.pickImage()}>
                   <Thumbnail style={{width: 100, height: 100, borderRadius: 50}}
-                  source={require('../img/Lili.jpeg')}
+                  source={{uri: actualUri }}
                   />
                 </TouchableOpacity>
 

@@ -4,8 +4,11 @@ export const SCHANGE = 'SCHANGE'; //Status Change
 export const SET_NAME = 'SET_NAME';//Name set
 export const SET_BIRTHDAY = 'SET_BIRTHDAY'; //Birthday Set
 
-//NewsList
+//SwiperDeck
 export const SET_NEW_LIST = "SET_NEW_LIST";
 
-//ProfilePhoto
-export const SET_PHOTO = "SET_PHOTO" //Photo change
+//News Page
+export const SET_NEWSOFFSET = "SET_READOFFSET" //Memorize the Scroll location
+
+//Photo Picker
+export const SET_PHOTO = "SET_PHOTO" //Pick the photo

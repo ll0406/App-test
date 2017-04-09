@@ -1,11 +1,11 @@
-import {GCHANGE, SCHANGE, SET_NAME, SET_BIRTHDAY, SET_NEWSOFFSET} from '../constants';
+import {GCHANGE, SCHANGE, SET_NAME, SET_BIRTHDAY, SET_NEWSOFFSET, SET_PHOTO} from '../constants';
 
 const initialState = {
   profileKeys: ['key0', 'key3'], //First gender, second status
   name: 'UNKNOWN',
   bd: new Date(),
   newsOffset: 0,
-  profileUri: null,
+  photoUri: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -29,13 +29,17 @@ const profileReducer = (state = initialState, action) => {
       newState.bd = payload
       break;
     }
+    case SET_PHOTO: {
+      newState.photoUri = payload
+      break;
+    }
 
     // This is the NEWS Part
     case SET_NEWSOFFSET: {
       newState.newsOffset = payload
       break;
     }
-    
+
 
   }
   console.log(newState)

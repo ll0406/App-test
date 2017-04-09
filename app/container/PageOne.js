@@ -39,7 +39,7 @@ class NewsP extends Component {
     // Log the current scroll position in the list in pixels
     //console.log(event.nativeEvent.contentOffset.y);
     this.offset = event.nativeEvent.contentOffset.y
-    console.log(this.offset)
+    //console.log(this.offset)
   }
 
   componentWillUnmount() {
